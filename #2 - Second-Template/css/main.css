@@ -7,6 +7,7 @@
 }
 :root{
     --main-color:#0e7996;
+    --transparent:rgb(15 116 143 /70%);
 }
 html{
     scroll-behavior: smooth;
@@ -43,8 +44,11 @@ ul{
 /* End Global Rules */
 /* Start Header */
 .header {
-background-color: black;
+background-color: transparent;
+position:absolute;
 height:90px;
+width:100%;
+left:0;
 }
 
 .header .container{
@@ -66,6 +70,9 @@ height:90px;
 }
 .header .logo{
     width:120px;
+    position: relative;
+    z-index: 2;
+    color: white
 }
 
 .header nav ul{
@@ -83,6 +90,7 @@ nav ul li a{
     position: relative;
     text-decoration: none;
     display: block;
+    font-weight: 800;
     color: white;
     text-transform: uppercase;
     font-size:15px
@@ -97,6 +105,8 @@ nav ul li a:hover , nav ul li .active{
     font-size:25px;
     padding: 20px ;
 border-left: 1px solid  white;
+position: relative;
+z-index: 2;
 }
 
 @media (max-width:768px) {
@@ -140,3 +150,96 @@ border-left: 1px solid  white;
 
 
 /* End Header */
+/* Start Landing */
+
+.landing {
+  background-image: url(../img/digital-banking-challenges.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100vh;
+  width:100vw;
+  position: relative;
+}
+.landing .overlay{
+  width: 100%;
+  height:100%;
+  background-color:rgb(0,0,0,.3);
+  position: absolute;
+}
+.landing .landing-content{
+  background-color:var(--transparent);
+  width:50%;
+  height:40%;
+  position: absolute;
+  left: 0;
+  top:50%;
+  transform: translate(0,-50%);
+  color: white;
+display:flex;
+justify-content: flex-end;
+align-items: center
+}
+@media (max-width:991px) {
+  .landing .landing-content{
+      width:100%;
+  }
+  .landing-content .landing-info{
+  max-width: 100%;
+}
+  .landing .icon i{
+    display:none;
+  }
+}
+.landing-content .landing-info{
+  max-width: 500px;
+}
+.landing-content h2{
+padding: 20px 0;
+font-size:30px;
+  line-height: 1.6;
+  font-weight:normal;
+
+text-transform: uppercase;
+}
+.landing-content .landing-info p{
+  line-height: 1.6;
+  padding: 10px 0;
+}
+.landing .icon{
+ display: flex;
+  position:absolute;
+    top:50%;
+width: 100%;
+  justify-content:space-between;
+}
+.landing i{
+  
+  color: white;
+ padding:20px
+}
+.landing ul{
+   display: flex;
+  position:absolute;
+    top:90%;
+width: 100%;
+  justify-content:center;
+  z-index: 2;
+
+}
+.landing ul li{
+    list-style-type:circle;
+color:white;
+font-size:50px;
+font-weight: bold;
+margin-left:30px
+}
+.landing ul li:hover{
+color: var(--main-color);
+      list-style-type:disc;
+}
+.landing ul .active{
+  color: var(--main-color);
+      list-style-type:disc;
+
+}
+/* End Landing */
